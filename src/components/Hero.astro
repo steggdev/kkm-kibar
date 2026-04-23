@@ -5,11 +5,11 @@
   <div class="hero-inner">
     <div class="hero-top">
       <div class="brand-row">
-        <div class="kkm-mark"><span>KKM</span></div>
-        <div class="brand-meta">
-          <span class="brand-country">Malaysia</span>
-          <span class="brand-org">Kementerian Kesihatan</span>
-        </div>
+        <img src="/Jata-Putih-1.png" alt="Kementerian Kesihatan Malaysia" class="brand-logo main-logo" />
+        <div class="brand-divider"></div>
+        <img src="/logo-nutritionistKKM.png" alt="Nutritionist KKM" class="brand-logo division-logo" />
+        <div class="brand-divider"></div>
+        <div class="kibar-placeholder">KiBAR Logo</div>
       </div>
       <div class="lang-toggle">
         <button class="lang-btn active" id="btn-lang-bm" data-lang="bm">BM</button>
@@ -114,57 +114,41 @@
   gap: 14px;
 }
 
-.kkm-mark {
-  width: 44px;
+.brand-logo {
   height: 44px;
-  border-radius: 12px;
+  width: auto;
+  object-fit: contain;
+}
+
+.main-logo {
+  height: 48px;
+}
+
+.division-logo {
+  height: 40px;
+}
+
+.brand-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 4px;
+}
+
+.kibar-placeholder {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
   background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px dashed rgba(255,255,255,0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(10px);
-  position: relative;
-}
-
-.kkm-mark::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 50%);
-}
-
-.kkm-mark span {
-  font-family: var(--font-serif);
-  font-size: 15px;
-  font-weight: 500;
-  color: white;
-  letter-spacing: 0.5px;
-  position: relative;
-}
-
-.brand-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-}
-
-.brand-country {
-  font-family: var(--font-serif);
-  font-size: 10px;
-  font-weight: 400;
-  font-style: italic;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-}
-
-.brand-org {
+  font-family: var(--font-sans);
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0.2px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.5px;
 }
 
 /* Language toggle */
@@ -292,11 +276,12 @@
 @media print {
   .hero { padding: 2rem 1.5rem; background: white; color: var(--ink); }
   .hero::before, .hero::after, .hero-grid { display: none; }
-  .hero h1, .kkm-mark span, .brand-org, .hero-sub, .meta-label, .meta-value { color: var(--ink) !important; }
+  .hero h1, .hero-sub, .meta-label, .meta-value { color: var(--ink) !important; }
   .hero h1 em { color: var(--teal-700) !important; }
   .kibar-eyebrow { background: var(--gold-light); border-color: var(--gold-border); }
   .kibar-eyebrow span { color: var(--gold); }
-  .brand-country { color: var(--ink-40) !important; }
+  .brand-divider { background: rgba(0,0,0,0.15); }
+  .kibar-placeholder { border-color: rgba(0,0,0,0.3); color: rgba(0,0,0,0.7); }
 }
 
 /* ════════ MOBILE ════════ */
@@ -305,6 +290,10 @@
   .hero-top { margin-bottom: 2.5rem; }
   .hero-meta { gap: 1.5rem; margin-top: 2rem; padding-top: 1.5rem; }
   .hero h1 { font-size: 3.2rem; }
-  .brand-meta { display: none; }
+  .brand-row { gap: 8px; }
+  .main-logo { height: 36px; }
+  .division-logo { height: 30px; }
+  .brand-divider { height: 24px; margin: 0; }
+  .kibar-placeholder { height: 30px; padding: 0 10px; font-size: 10px; }
 }
 </style>
