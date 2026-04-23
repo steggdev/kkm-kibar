@@ -1,0 +1,233 @@
+---
+import '../styles/global.css';
+import Hero from '../components/Hero.astro';
+import CalculatorForm from '../components/CalculatorForm.astro';
+import Results from '../components/Results.astro';
+---
+
+<!DOCTYPE html>
+<html lang="ms" id="html-root">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kalkulator KiBar — Kementerian Kesihatan Malaysia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <Hero />
+  <div class="main">
+    <CalculatorForm />
+    <Results />
+  </div>
+
+  <style>
+    .main {
+      max-width: 680px;
+      margin: -3rem auto 0;
+      padding: 0 1rem 5rem;
+      position: relative;
+      z-index: 10;
+    }
+    @media print {
+      .main { margin-top: 2rem; }
+    }
+  </style>
+
+  <script>
+    import { t } from '../data/translations';
+    import type { Language, BmiCat, QualityTier } from '../data/translations';
+    import { getCalorieFactor, formatTime, getSnackTimes, getMealPlanKey } from '../data/calculator';
+    import { mealPlans } from '../data/mealPlans';
+    
+    let lang: Language = 'bm';
+    let activityLevel = 'sedentary';
+    const SLOT_ICONS = ['🌅','🍎','☀️','🫐','🌙'];
+    
+    function animateValue(el: HTMLElement, val: string) {
+      el.classList.remove('updated');
+      void el.offsetWidth;
+      el.textContent = val;
+      el.classList.add('updated');
+    }
+    
+    function updateTimingOptions() {
+      const selects = ['t-breakfast', 't-lunch', 't-dinner'];
+      const bmLabels = [
+        ['6:00 pagi','6:30 pagi','7:00 pagi','7:30 pagi','8:00 pagi','8:30 pagi','9:00 pagi','9:30 pagi','10:00 pagi'],
+        ['11:30 pagi','12:00 tengahari','12:30 tengahari','1:00 petang','1:30 petang','2:00 petang'],
+        ['6:00 petang','6:30 petang','7:00 malam','7:30 malam','8:00 malam','8:30 malam','9:00 malam']
+      ];
+      const enLabels = [
+        ['6:00 am','6:30 am','7:00 am','7:30 am','8:00 am','8:30 am','9:00 am','9:30 am','10:00 am'],
+        ['11:30 am','12:00 pm','12:30 pm','1:00 pm','1:30 pm','2:00 pm'],
+        ['6:00 pm','6:30 pm','7:00 pm','7:30 pm','8:00 pm','8:30 pm','9:00 pm']
+      ];
+      const labels = lang === 'bm' ? bmLabels : enLabels;
+      selects.forEach((id, i) => {
+        const sel = document.getElementById(id) as HTMLSelectElement;
+        if (!sel) return;
+        const current = sel.value;
+        Array.from(sel.options).forEach((opt, j) => { opt.text = labels[i][j]; });
+        sel.value = current;
+      });
+    }
+
+    function calculate() {
+      const weightEl = document.getElementById('weight') as HTMLInputElement;
+      const heightEl = document.getElementById('height') as HTMLInputElement;
+      const w = parseFloat(weightEl.value);
+      const hcm = parseFloat(heightEl.value);
+      
+      if (!w || !hcm || w < 20 || hcm < 100) { 
+        alert(t[lang].alert); 
+        return; 
+      }
+
+      const h = hcm / 100;
+      const bmi = w / (h * h);
+      const idealW = 22.0 * h * h;
+
+      let bmiCat: BmiCat;
+      if (bmi < 18.5) bmiCat = 'uw';
+      else if (bmi < 23.0) bmiCat = 'normal';
+      else if (bmi < 27.5) bmiCat = 'ow';
+      else bmiCat = 'ob';
+
+      const useIdeal = bmiCat === 'uw' || bmiCat === 'ob';
+      const calcWeight = useIdeal ? idealW : w;
+      const factor = getCalorieFactor(bmiCat, activityLevel);
+      const kcal = Math.round(calcWeight * factor);
+
+      animateValue(document.getElementById('r-bmi')!, bmi.toFixed(1));
+      animateValue(document.getElementById('r-ideal')!, idealW.toFixed(1));
+      animateValue(document.getElementById('r-kcal')!, kcal.toLocaleString());
+
+      const statusBgs: Record<BmiCat, string> = { uw: 'rgba(134,208,197,0.12)', normal: 'rgba(134,208,197,0.14)', ow: 'rgba(201,168,76,0.12)', ob: 'rgba(220,38,38,0.10)' };
+      const statusBorder: Record<BmiCat, string> = { uw: 'rgba(134,208,197,0.2)', normal: 'rgba(134,208,197,0.22)', ow: 'rgba(201,168,76,0.22)', ob: 'rgba(220,38,38,0.2)' };
+      const pill = document.getElementById('status-pill')!;
+      pill.style.background = statusBgs[bmiCat];
+      pill.style.borderColor = statusBorder[bmiCat];
+      document.getElementById('status-icon')!.textContent = t[lang].statusIcon[bmiCat];
+      document.getElementById('status-label')!.textContent = t[lang].status[bmiCat];
+      document.getElementById('status-desc')!.textContent = t[lang].statusDesc[bmiCat];
+
+      const planKey = getMealPlanKey(bmiCat, kcal, activityLevel);
+      const plan = mealPlans[planKey];
+      const tier = plan.tier;
+      const tx = t[lang];
+
+      const qn = tx.qualityTier[tier as QualityTier];
+      const notice = document.getElementById('quality-notice')!;
+      notice.className = `quality-notice ${tier}`;
+      document.getElementById('qn-icon')!.textContent = qn.icon;
+      document.getElementById('qn-title')!.textContent = qn.title;
+      document.getElementById('qn-desc')!.textContent = qn.desc;
+
+      const bfTime = (document.getElementById('t-breakfast') as HTMLSelectElement).value;
+      const lunchTime = (document.getElementById('t-lunch') as HTMLSelectElement).value;
+      const dinnerTime = (document.getElementById('t-dinner') as HTMLSelectElement).value;
+      const { snack1, snack2 } = getSnackTimes(bfTime, lunchTime, dinnerTime, lang);
+      const mealTimes = [formatTime(bfTime, lang), snack1, formatTime(lunchTime, lang), snack2, formatTime(dinnerTime, lang)];
+
+      document.getElementById('plan-badge')!.textContent = plan.range;
+      document.getElementById('meal-sub-text')!.textContent = tx.mealSub(kcal.toLocaleString());
+
+      const slots = tx.slots;
+      document.getElementById('meal-plan-content')!.innerHTML = plan.slots.map((slot, i) => `
+        <div class="meal-slot">
+          <div class="slot-header">
+            <span class="slot-emoji">${SLOT_ICONS[i]}</span>
+            <span class="slot-name">${slots[i]}</span>
+            <span class="slot-time">${mealTimes[i]}</span>
+            <span class="slot-divider"></span>
+            <span class="slot-kcal">${slot.kcal}</span>
+          </div>
+          <div class="slot-items">
+            ${slot.items[lang].map((item: string) => `<div class="slot-item">${item}</div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      const resultsEl = document.getElementById('results')!;
+      const wasHidden = !resultsEl.classList.contains('show');
+      resultsEl.classList.add('show');
+      if (wasHidden) {
+        setTimeout(() => resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+    }
+
+    function setLang(l: Language, e: Event) {
+      lang = l;
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+      (e.target as HTMLElement).classList.add('active');
+      const tx = t[l];
+      
+      document.getElementById('h-title')!.innerHTML = tx.title;
+      document.getElementById('h-sub')!.textContent = tx.sub;
+      document.getElementById('m1')!.textContent = tx.m1;
+      document.getElementById('m2')!.textContent = tx.m2;
+      document.getElementById('m3')!.textContent = tx.m3;
+      
+      const metaLabels = document.querySelectorAll('.meta-label');
+      metaLabels.forEach((el, i) => { el.textContent = tx.metaLabels[i]; });
+      
+      document.getElementById('s1-num')!.textContent = tx.s1n;
+      document.getElementById('s2-num')!.textContent = tx.s2n;
+      document.getElementById('s3-num')!.textContent = tx.s3n;
+      document.getElementById('l-personal')!.textContent = tx.personal;
+      document.getElementById('l-activity')!.textContent = tx.activity;
+      document.getElementById('l-timing')!.textContent = tx.timing;
+      document.getElementById('l-weight')!.textContent = tx.weight;
+      document.getElementById('l-height')!.textContent = tx.height;
+      
+      document.getElementById('a1-label')!.textContent = tx.a1;
+      document.getElementById('a1-desc')!.textContent = tx.a1d;
+      document.getElementById('a2-label')!.textContent = tx.a2;
+      document.getElementById('a2-desc')!.textContent = tx.a2d;
+      document.getElementById('a3-label')!.textContent = tx.a3;
+      document.getElementById('a3-desc')!.textContent = tx.a3d;
+      
+      document.getElementById('lt-breakfast')!.textContent = tx.ltBreakfast;
+      document.getElementById('lt-lunch')!.textContent = tx.ltLunch;
+      document.getElementById('lt-dinner')!.textContent = tx.ltDinner;
+      
+      document.getElementById('calc-btn-text')!.textContent = tx.calcBtn;
+      document.getElementById('divider-mark')!.textContent = tx.dividerMark;
+      document.getElementById('m-eyebrow')!.textContent = tx.mEyebrow;
+      document.getElementById('m-label')!.textContent = tx.mLabel;
+      document.getElementById('l-idealw')!.textContent = tx.idealw;
+      document.getElementById('l-kcal')!.textContent = tx.kcal;
+      document.getElementById('l-kcal-unit')!.textContent = tx.kcalUnit;
+      document.getElementById('l-mealplan-eyebrow')!.textContent = tx.mealEyebrow;
+      document.getElementById('l-mealplan')!.textContent = tx.mealplan;
+      document.getElementById('pdf-btn-text')!.textContent = tx.pdfBtn;
+      document.getElementById('disclaimer-text')!.innerHTML = `<span class="disclaimer-mark">§</span>${tx.disclaimer.replace(/\n/g, '<br>')}`;
+      
+      document.getElementById('html-root')!.lang = l === 'bm' ? 'ms' : 'en';
+      
+      updateTimingOptions();
+      if (document.getElementById('results')!.classList.contains('show')) {
+        calculate();
+      }
+    }
+
+    // Attach event listeners
+    document.getElementById('btn-lang-bm')?.addEventListener('click', (e) => setLang('bm', e));
+    document.getElementById('btn-lang-en')?.addEventListener('click', (e) => setLang('en', e));
+    
+    document.querySelectorAll('.activity-opt').forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        document.querySelectorAll('.activity-opt').forEach(o => o.classList.remove('selected'));
+        const target = e.currentTarget as HTMLElement;
+        target.classList.add('selected');
+        activityLevel = target.dataset.level || 'sedentary';
+      });
+    });
+
+    document.getElementById('calc-btn')?.addEventListener('click', calculate);
+    document.getElementById('btn-print')?.addEventListener('click', () => window.print());
+  </script>
+</body>
+</html>

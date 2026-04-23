@@ -1,0 +1,310 @@
+---
+---
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div class="brand-row">
+        <div class="kkm-mark"><span>KKM</span></div>
+        <div class="brand-meta">
+          <span class="brand-country">Malaysia</span>
+          <span class="brand-org">Kementerian Kesihatan</span>
+        </div>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-lang-bm" data-lang="bm">BM</button>
+        <button class="lang-btn" id="btn-lang-en" data-lang="en">EN</button>
+      </div>
+    </div>
+
+    <div class="kibar-eyebrow">
+      <div class="kibar-dot"></div>
+      <span>Program KiBar</span>
+    </div>
+
+    <h1 id="h-title">Kenali <em>keperluan</em><br>tenaga harian anda.</h1>
+    <p class="hero-sub" id="h-sub">Kalkulator berasaskan panduan pemakanan KKM — dapatkan sasaran kalori, status BMI, dan pelan pemakanan harian yang disesuaikan dengan profil kesihatan anda.</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Berdasarkan</span>
+        <span class="meta-value" id="m1">Garis Panduan KKM</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Tempoh kiraan</span>
+        <span class="meta-value" id="m2">± 30 saat</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Privasi</span>
+        <span class="meta-value" id="m3">Data tidak disimpan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ════════ HERO ════════ */
+.hero {
+  background: var(--teal-950);
+  position: relative;
+  overflow: hidden;
+  padding: 3.5rem 1.5rem 6rem;
+}
+
+/* Floating orb */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 70%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(0,138,120,0.4) 0%, transparent 55%);
+  pointer-events: none;
+  filter: blur(20px);
+  animation: orbFloat 20s var(--ease-soft) infinite alternate;
+}
+
+/* Gold whisper bottom */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 60%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(184,146,74,0.12) 0%, transparent 55%);
+  pointer-events: none;
+  filter: blur(24px);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Fine grid texture */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, black 30%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, black 30%, transparent 85%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Hero top bar */
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  animation: fadeInDown 0.7s var(--ease) both;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.kkm-mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.kkm-mark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 50%);
+}
+
+.kkm-mark span {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.brand-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.brand-country {
+  font-family: var(--font-serif);
+  font-size: 10px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.brand-org {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.2px;
+}
+
+/* Language toggle */
+.lang-toggle {
+  display: flex;
+  gap: 2px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 100px;
+  padding: 3px;
+  backdrop-filter: blur(10px);
+}
+
+.lang-btn {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 100px;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+}
+
+.lang-btn.active {
+  background: var(--cream);
+  color: var(--teal-900);
+  font-weight: 600;
+}
+
+/* Hero eyebrow */
+.kibar-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold-light);
+  border: 1px solid var(--gold-border);
+  border-radius: 100px;
+  padding: 5px 14px 5px 10px;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.7s var(--ease) 0.1s both;
+}
+
+.kibar-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px rgba(184,146,74,0.8);
+  animation: pulse 2.5s var(--ease-soft) infinite;
+}
+
+.kibar-eyebrow span {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Headline */
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 300;
+  color: white;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+  animation: fadeInUp 0.8s var(--ease) 0.2s both;
+}
+
+/* Note: em is styled globally or implicitly, but let's make sure it's scoped if needed */
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal-300);
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  line-height: 1.65;
+  max-width: 480px;
+  animation: fadeInUp 0.8s var(--ease) 0.3s both;
+}
+
+/* Hero meta strip */
+.hero-meta {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  animation: fadeInUp 0.8s var(--ease) 0.4s both;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.meta-label {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.3px;
+}
+
+.meta-value {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.2px;
+}
+
+/* ════════ PRINT ════════ */
+@media print {
+  .hero { padding: 2rem 1.5rem; background: white; color: var(--ink); }
+  .hero::before, .hero::after, .hero-grid { display: none; }
+  .hero h1, .kkm-mark span, .brand-org, .hero-sub, .meta-label, .meta-value { color: var(--ink) !important; }
+  .hero h1 em { color: var(--teal-700) !important; }
+  .kibar-eyebrow { background: var(--gold-light); border-color: var(--gold-border); }
+  .kibar-eyebrow span { color: var(--gold); }
+  .brand-country { color: var(--ink-40) !important; }
+}
+
+/* ════════ MOBILE ════════ */
+@media (max-width: 560px) {
+  .hero { padding: 2.5rem 1rem 4.5rem; }
+  .hero-top { margin-bottom: 2.5rem; }
+  .hero-meta { gap: 1.5rem; margin-top: 2rem; padding-top: 1.5rem; }
+  .hero h1 { font-size: 3.2rem; }
+  .brand-meta { display: none; }
+}
+</style>

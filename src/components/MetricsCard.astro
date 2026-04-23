@@ -1,0 +1,213 @@
+---
+---
+<div class="metrics-card">
+  <div class="metrics-head">
+    <span class="metrics-eyebrow" id="m-eyebrow">Profil tenaga</span>
+    <span class="metrics-head-line"></span>
+    <span class="metrics-label" id="m-label">Ringkasan</span>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric">
+      <div class="metric-lbl">BMI</div>
+      <div class="metric-val" id="r-bmi">—</div>
+      <div class="metric-unit">kg/m²</div>
+    </div>
+    <div class="metric">
+      <div class="metric-lbl" id="l-idealw">berat ideal</div>
+      <div class="metric-val" id="r-ideal">—</div>
+      <div class="metric-unit">kg</div>
+    </div>
+    <div class="metric">
+      <div class="metric-lbl" id="l-kcal">kalori harian</div>
+      <div class="metric-val" id="r-kcal">—</div>
+      <div class="metric-unit" id="l-kcal-unit">kcal / hari</div>
+    </div>
+  </div>
+  <div class="status-pill" id="status-pill">
+    <div class="status-icon" id="status-icon"></div>
+    <div>
+      <div class="status-name" id="status-label"></div>
+      <div class="status-desc-text" id="status-desc"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Metrics card */
+.metrics-card {
+  background: var(--teal-950);
+  border-radius: var(--r-lg);
+  padding: 2.25rem 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--sh-4);
+}
+
+.metrics-card::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 80%;
+  height: 160%;
+  background: radial-gradient(circle, rgba(0,138,120,0.35) 0%, transparent 55%);
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+.metrics-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+  pointer-events: none;
+}
+
+.metrics-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.metrics-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--teal-300);
+  letter-spacing: 0.5px;
+}
+
+.metrics-head-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(77,184,168,0.3), transparent);
+}
+
+.metrics-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
+
+.metric {
+  padding: 1rem 0.25rem;
+  text-align: center;
+  position: relative;
+}
+
+.metric:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
+.metric-lbl {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  font-style: normal;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.metric-val {
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+  text-shadow: 0 1px 16px rgba(0,0,0,0.3);
+}
+
+.metric-unit {
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: var(--r);
+  padding: 14px 18px;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+}
+
+.status-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.status-name {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 3px;
+  letter-spacing: 0.1px;
+}
+
+.status-desc-text {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.55;
+}
+
+.metric-val.updated { animation: countUp 0.6s var(--ease) both; }
+
+@media print {
+  .metrics-card { background: white; color: var(--ink); border: 1px solid var(--cream-200); box-shadow: none !important; }
+  .metrics-card::before, .metrics-card::after { display: none; }
+  .metric-val, .metric-lbl, .metric-unit, .status-name, .status-desc-text, .metrics-eyebrow, .metrics-label { color: var(--ink) !important; }
+  .status-pill { background: var(--cream); border-color: var(--cream-200); }
+}
+
+@media (max-width: 560px) {
+  .metrics-grid { grid-template-columns: 1fr; gap: 0; }
+  .metric { padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .metric:not(:last-child)::after { display: none; }
+  .metric:last-child { border-bottom: none; }
+}
+</style>

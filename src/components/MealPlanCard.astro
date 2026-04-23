@@ -1,0 +1,244 @@
+---
+---
+<div class="meal-card">
+  <div class="meal-header">
+    <div class="meal-header-top">
+      <div>
+        <div class="meal-eyebrow-row">
+          <span class="meal-eyebrow-line" style="max-width: 40px;"></span>
+          <span class="meal-eyebrow" id="l-mealplan-eyebrow">Cadangan pemakanan</span>
+        </div>
+        <div class="meal-title" id="l-mealplan">Pelan makan sehari</div>
+      </div>
+      <div class="kcal-badge" id="plan-badge"></div>
+    </div>
+    <div class="meal-sub" id="meal-sub-text"></div>
+  </div>
+  <div class="meal-slots" id="meal-plan-content"></div>
+  <div class="meal-footer">
+    <button class="print-btn" id="btn-print">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      <span id="pdf-btn-text">Muat turun / Cetak</span>
+    </button>
+  </div>
+</div>
+
+<style>
+/* Meal card */
+.meal-card {
+  background: white;
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-3);
+  overflow: hidden;
+  margin-top: 1.25rem;
+  border: 1px solid rgba(0,36,31,0.03);
+}
+
+.meal-header {
+  padding: 2rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--cream-100);
+  background: linear-gradient(180deg, var(--cream) 0%, white 100%);
+}
+
+.meal-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 0.75rem;
+}
+
+.meal-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.meal-eyebrow {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--teal-700);
+  letter-spacing: 0.3px;
+}
+
+.meal-eyebrow-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--cream-200), transparent);
+  max-width: 100px;
+}
+
+.meal-title {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--ink);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.kcal-badge {
+  background: var(--teal-900);
+  color: white;
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.meal-sub {
+  font-size: 15px;
+  color: var(--ink-60);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* Meal slots - editorial/menu style */
+.meal-slots {
+  padding: 1.5rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* We style .meal-slot globally in global.css, or locally via :global() since it's dynamically inserted */
+:global(.meal-slot) {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--cream-100);
+  transition: opacity 0.3s var(--ease);
+}
+
+:global(.meal-slot:last-child) { border-bottom: none; }
+:global(.meal-slot:hover) { opacity: 0.95; }
+
+:global(.slot-header) {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+:global(.slot-emoji) {
+  font-size: 18px;
+  flex-shrink: 0;
+  filter: saturate(0.85);
+}
+
+:global(.slot-name) {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+:global(.slot-time) {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--ink-40);
+  letter-spacing: 0.2px;
+}
+
+:global(.slot-divider) {
+  flex: 1;
+  height: 1px;
+  background: var(--cream-200);
+  background-image: linear-gradient(to right, var(--cream-300) 33%, transparent 0%);
+  background-size: 4px 1px;
+  background-repeat: repeat-x;
+  transform: translateY(-3px);
+}
+
+:global(.slot-kcal) {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--teal-700);
+  letter-spacing: 0.2px;
+  flex-shrink: 0;
+}
+
+:global(.slot-items) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 26px;
+}
+
+:global(.slot-item) {
+  font-size: 15.5px;
+  color: var(--ink-60);
+  line-height: 1.6;
+  position: relative;
+  padding-left: 14px;
+}
+
+:global(.slot-item::before) {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 1px;
+  background: var(--teal-400);
+}
+
+/* Footer */
+.meal-footer {
+  padding: 1.5rem 2rem 2rem;
+  border-top: 1px solid var(--cream-100);
+  display: flex;
+  gap: 10px;
+}
+
+.print-btn {
+  flex: 1;
+  height: 52px;
+  background: var(--cream);
+  border: 1px solid var(--cream-200);
+  border-radius: var(--r);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s var(--ease);
+}
+
+.print-btn:hover {
+  background: var(--teal-900);
+  color: white;
+  border-color: var(--teal-900);
+}
+
+.print-btn svg {
+  transition: transform 0.3s var(--ease);
+}
+
+.print-btn:hover svg {
+  transform: translateY(2px);
+}
+
+@media print {
+  .meal-card { box-shadow: none !important; border: 1px solid var(--cream-200); }
+}
+
+@media (max-width: 560px) {
+  .meal-header, .meal-slots, .meal-footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .meal-header-top { flex-direction: column; align-items: flex-start; }
+  :global(.slot-items) { padding-left: 0; }
+}
+</style>

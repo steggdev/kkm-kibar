@@ -1,0 +1,74 @@
+---
+import MetricsCard from './MetricsCard.astro';
+import QualityNotice from './QualityNotice.astro';
+import MealPlanCard from './MealPlanCard.astro';
+---
+<div class="results" id="results">
+  <div class="results-divider">
+    <span class="divider-line"></span>
+    <span class="divider-mark" id="divider-mark">Keputusan</span>
+    <span class="divider-line"></span>
+  </div>
+
+  <MetricsCard />
+  <QualityNotice />
+  <MealPlanCard />
+
+  <p class="disclaimer" id="disclaimer-text">
+    <span class="disclaimer-mark">§</span>
+    Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.<br>
+    © Kementerian Kesihatan Malaysia
+  </p>
+</div>
+
+<style>
+/* Divider between form and results */
+.results-divider {
+  margin: 3rem auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 640px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--cream-300), transparent);
+}
+
+.divider-mark {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink-40);
+  letter-spacing: 1px;
+}
+
+/* Disclaimer */
+.disclaimer {
+  text-align: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-40);
+  line-height: 1.8;
+  margin-top: 2.5rem;
+  padding: 0 1rem 1rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimer-mark {
+  display: block;
+  font-size: 20px;
+  color: var(--cream-300);
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+@media print {
+  .results-divider { display: none; }
+}
+</style>
