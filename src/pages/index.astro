@@ -105,11 +105,8 @@ import Results from '../components/Results.astro';
       animateValue(document.getElementById('r-ideal')!, idealW.toFixed(1));
       animateValue(document.getElementById('r-kcal')!, kcal.toLocaleString());
 
-      const statusBgs: Record<BmiCat, string> = { uw: 'rgba(134,208,197,0.12)', normal: 'rgba(134,208,197,0.14)', ow: 'rgba(201,168,76,0.12)', ob: 'rgba(220,38,38,0.10)' };
-      const statusBorder: Record<BmiCat, string> = { uw: 'rgba(134,208,197,0.2)', normal: 'rgba(134,208,197,0.22)', ow: 'rgba(201,168,76,0.22)', ob: 'rgba(220,38,38,0.2)' };
       const pill = document.getElementById('status-pill')!;
-      pill.style.background = statusBgs[bmiCat];
-      pill.style.borderColor = statusBorder[bmiCat];
+      pill.className = `status-pill ${bmiCat}`;
       document.getElementById('status-icon')!.textContent = t[lang].statusIcon[bmiCat];
       document.getElementById('status-label')!.textContent = t[lang].status[bmiCat];
       document.getElementById('status-desc')!.textContent = t[lang].statusDesc[bmiCat];
