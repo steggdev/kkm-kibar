@@ -33,7 +33,7 @@ export const t = {
     statusIcon: { uw: '↓', normal: '✓', ow: '!', ob: '●' },
     qualityTier: {
       clean:     { icon: '◆', title: 'Pelan Pemakanan Bersih', desc: 'Pelan ini mengutamakan makanan rendah lemak tepu, rendah natrium, dan kaya serat bagi menyokong penurunan berat badan secara sihat.' },
-      balanced:  { icon: '◇', title: 'Pelan Pemakanan Seimbang', desc: 'Kombinasi makanan rumah yang sihat dengan pilihan kegemaran tempatan — kaya nutrien dan bersesuaian dengan BMI anda.' },
+      balanced:  { icon: '◈', title: 'Pelan Pemakanan Seimbang', desc: 'Kombinasi makanan rumah yang sihat dengan pilihan kegemaran tempatan — kaya nutrien dan bersesuaian dengan BMI anda.' },
       indulgent: { icon: '✦', title: 'Pelan Seimbang + Nikmati', desc: 'Anda boleh nikmati makanan kegemaran seperti nasi lemak dan roti canai — dengan kawalan bahagian. Badan aktif anda boleh membakarnya, tetapi kekalkan keseimbangan untuk kesihatan jangka panjang.' }
     },
     mealSub: (kcal: string | number) => `Pelan ini direka untuk memenuhi keperluan tenaga harian anda, iaitu lebih kurang ${kcal} kcal sehari, dengan mengambil kira tahap aktiviti dan status BMI anda.`,
@@ -69,7 +69,7 @@ export const t = {
     statusIcon: { uw: '↓', normal: '✓', ow: '!', ob: '●' },
     qualityTier: {
       clean:     { icon: '◆', title: 'Clean Eating Plan', desc: 'This plan prioritises low saturated fat, low sodium, and high fibre foods to support healthy weight loss.' },
-      balanced:  { icon: '◇', title: 'Balanced Meal Plan', desc: 'A mix of healthy home-cooked meals with local favourites — nutrient-rich and suited to your BMI.' },
+      balanced:  { icon: '◈', title: 'Balanced Meal Plan', desc: 'A mix of healthy home-cooked meals with local favourites — nutrient-rich and suited to your BMI.' },
       indulgent: { icon: '✦', title: 'Balanced + Enjoy Plan', desc: 'You can enjoy favourites like nasi lemak and roti canai — with portion control. Your active body can burn it off, but keep balance in mind for long-term health.' }
     },
     mealSub: (kcal: string | number) => `This plan is designed to meet your daily energy needs of approximately ${kcal} kcal per day, taking into account your activity level and BMI status.`,
