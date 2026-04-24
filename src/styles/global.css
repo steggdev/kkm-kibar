@@ -34,6 +34,7 @@
   /* Type */
   --font-serif: 'Playfair Display', 'Georgia', serif;
   --font-sans:  'Inter Tight', -apple-system, sans-serif;
+  --font-inter: 'Inter', -apple-system, sans-serif;
 
   /* Radii */
   --r-sm: 8px;

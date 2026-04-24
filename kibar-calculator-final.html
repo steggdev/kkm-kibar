@@ -6,7 +6,7 @@
   <title>Kalkulator KiBar — Kementerian Kesihatan Malaysia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -42,8 +42,9 @@
       --gold-border:rgba(184,146,74,0.32);
 
       /* Type */
-      --font-serif: 'Instrument Serif', 'Georgia', serif;
+      --font-serif: 'Playfair Display', 'Georgia', serif;
       --font-sans:  'Inter Tight', -apple-system, sans-serif;
+      --font-inter: 'Inter', -apple-system, sans-serif;
 
       /* Radii */
       --r-sm: 8px;
@@ -670,15 +671,21 @@
       background: linear-gradient(to right, transparent, var(--cream-300), transparent);
     }
 
-    .divider-mark {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 14px;
+    /* Disclaimer */
+    .disclaimer {
+      text-align: center;
+      font-family: var(--font-inter);
+      font-size: 12px;
       color: var(--ink-40);
-      letter-spacing: 1px;
+      line-height: 1.7;
+      margin-top: 2.5rem;
+      padding: 0 1rem 1rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Metrics card */
+    @media print {
     .metrics-card {
       background: var(--teal-950);
       border-radius: var(--r-lg);
@@ -1781,7 +1788,7 @@ function setLang(l, e) {
   document.getElementById('l-mealplan-eyebrow').textContent = tx.mealEyebrow;
   document.getElementById('l-mealplan').textContent = tx.mealplan;
   document.getElementById('pdf-btn-text').textContent = tx.pdfBtn;
-  document.getElementById('disclaimer-text').innerHTML = `<span class="disclaimer-mark">§</span>${tx.disclaimer.replace(/\n/g, '<br>')}`;
+  document.getElementById('disclaimer-text').innerHTML = tx.disclaimer.replace(/\n/g, '<br>');
   document.documentElement.lang = l === 'bm' ? 'ms' : 'en';
   updateTimingOptions();
   if (document.getElementById('results').classList.contains('show')) calculate();
