@@ -15,9 +15,8 @@ import MealPlanCard from './MealPlanCard.astro';
   <MealPlanCard />
 
   <p class="disclaimer" id="disclaimer-text">
-    <span class="disclaimer-mark">§</span>
     Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.<br>
-    © Kementerian Kesihatan Malaysia
+    © Kementerian Kesihatan Malaysia Bahagian Pemakanan
   </p>
 </div>
 
@@ -48,24 +47,15 @@ import MealPlanCard from './MealPlanCard.astro';
 /* Disclaimer */
 .disclaimer {
   text-align: center;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 13px;
+  font-family: var(--font-sans);
+  font-size: 12px;
   color: var(--ink-40);
-  line-height: 1.8;
+  line-height: 1.7;
   margin-top: 2.5rem;
   padding: 0 1rem 1rem;
   max-width: 520px;
   margin-left: auto;
   margin-right: auto;
-}
-
-.disclaimer-mark {
-  display: block;
-  font-size: 20px;
-  color: var(--cream-300);
-  margin-bottom: 8px;
-  font-weight: 300;
 }
 
 @media print {

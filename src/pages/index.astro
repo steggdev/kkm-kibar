@@ -198,7 +198,7 @@ import Results from '../components/Results.astro';
       document.getElementById('l-mealplan-eyebrow')!.textContent = tx.mealEyebrow;
       document.getElementById('l-mealplan')!.textContent = tx.mealplan;
       document.getElementById('pdf-btn-text')!.textContent = tx.pdfBtn;
-      document.getElementById('disclaimer-text')!.innerHTML = `<span class="disclaimer-mark">§</span>${tx.disclaimer.replace(/\n/g, '<br>')}`;
+      document.getElementById('disclaimer-text')!.innerHTML = tx.disclaimer.replace(/\n/g, '<br>');
       
       document.getElementById('html-root')!.lang = l === 'bm' ? 'ms' : 'en';
       

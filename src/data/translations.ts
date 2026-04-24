@@ -21,7 +21,7 @@ export const t = {
     idealw: 'berat ideal', kcal: 'kalori harian', kcalUnit: 'kcal / hari',
     mealEyebrow: 'Cadangan pemakanan', mealplan: 'Pelan makan sehari',
     pdfBtn: 'Muat turun / Cetak',
-    disclaimer: 'Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.\n© Kementerian Kesihatan Malaysia',
+    disclaimer: 'Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.\n© Kementerian Kesihatan Malaysia Bahagian Pemakanan',
     alert: 'Sila masukkan berat dan tinggi yang sah.',
     status: { uw: 'Kurang Berat Badan', normal: 'Berat Badan Normal', ow: 'Lebih Berat Badan', ob: 'Obes' },
     statusDesc: {
@@ -57,7 +57,7 @@ export const t = {
     idealw: 'ideal weight', kcal: 'daily calories', kcalUnit: 'kcal / day',
     mealEyebrow: 'Meal recommendation', mealplan: 'Your 1-day meal plan',
     pdfBtn: 'Download / Print',
-    disclaimer: 'This information is a guide only and does not replace clinical advice. Please consult a nutritionist or doctor for further guidance.\n© Ministry of Health Malaysia',
+    disclaimer: 'This information is a guide only and does not replace clinical advice. Please consult a nutritionist or doctor for further guidance.\n© Ministry of Health Malaysia Nutrition Division',
     alert: 'Please enter a valid weight and height.',
     status: { uw: 'Underweight', normal: 'Normal Weight', ow: 'Overweight', ob: 'Obese' },
     statusDesc: {
