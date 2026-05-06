@@ -9,7 +9,9 @@
         <div class="brand-divider"></div>
         <img src="/logo-nutritionistKKM.png" alt="Nutritionist KKM" class="brand-logo division-logo" />
         <div class="brand-divider"></div>
-        <div class="kibar-placeholder">KiBAR Logo</div>
+        <div class="kibar-chip">
+          <img src="/logo-kibar.png" alt="KiBAR" class="brand-logo kibar-logo" />
+        </div>
       </div>
       <div class="lang-toggle">
         <button class="lang-btn active" id="btn-lang-bm" data-lang="bm">BM</button>
@@ -115,40 +117,40 @@
 }
 
 .brand-logo {
-  height: 44px;
+  height: 88px;
   width: auto;
   object-fit: contain;
 }
 
 .main-logo {
-  height: 48px;
+  height: 96px;
 }
 
 .division-logo {
-  height: 40px;
+  height: 80px;
+}
+
+.kibar-logo {
+  height: 80px;
 }
 
 .brand-divider {
   width: 1px;
-  height: 32px;
+  height: 56px;
   background: rgba(255,255,255,0.15);
   margin: 0 4px;
 }
 
-.kibar-placeholder {
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 8px;
-  background: rgba(255,255,255,0.07);
-  border: 1px dashed rgba(255,255,255,0.3);
+/* KiBAR logo chip — isolates the white-bg logo from the dark hero */
+.kibar-chip {
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  padding: 6px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.7);
-  letter-spacing: 0.5px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
 }
 
 /* Language toggle */
@@ -281,7 +283,6 @@
   .kibar-eyebrow { background: var(--gold-light); border-color: var(--gold-border); }
   .kibar-eyebrow span { color: var(--gold); }
   .brand-divider { background: rgba(0,0,0,0.15); }
-  .kibar-placeholder { border-color: rgba(0,0,0,0.3); color: rgba(0,0,0,0.7); }
 }
 
 /* ════════ MOBILE ════════ */
@@ -291,9 +292,10 @@
   .hero-meta { gap: 1.5rem; margin-top: 2rem; padding-top: 1.5rem; }
   .hero h1 { font-size: 3.2rem; }
   .brand-row { gap: 8px; }
-  .main-logo { height: 36px; }
-  .division-logo { height: 30px; }
-  .brand-divider { height: 24px; margin: 0; }
-  .kibar-placeholder { height: 30px; padding: 0 10px; font-size: 10px; }
+  .main-logo { height: 72px; }
+  .division-logo { height: 60px; }
+  .kibar-logo { height: 60px; }
+  .kibar-chip { padding: 4px 8px; border-radius: 10px; }
+  .brand-divider { height: 48px; margin: 0; }
 }
 </style>
