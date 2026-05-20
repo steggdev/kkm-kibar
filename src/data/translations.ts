@@ -2,7 +2,7 @@ export type Language = 'bm' | 'en';
 export type BmiCat = 'uw' | 'normal' | 'ow' | 'ob';
 
 const hardcodedBM = {
-  eyebrow: 'Inisiatif KiBAR (kira, bakar, rekod)',
+  eyebrow: 'INISIATIF KIBAR (KIRA, BAKAR, REKOD)',
   title: 'Berapa keperluan kalori harian anda?',
   sub: 'Ketahui maklumat mengenai keperluan kalori harian, status Indeks Jisim Tubuh (BMI) dan contoh menu yang bersesuaian dengan keperluan kalori harian anda.',
   a1: 'Sedentari',
@@ -11,7 +11,7 @@ const hardcodedBM = {
   a2d: 'Anda melakukan aktiviti berintensiti sederhana 150–300 minit seminggu',
   a3: 'Sangat aktif',
   a3d: 'Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu',
-  activityExamples: 'Contoh aktiviti berintensiti sederhana: joging, berjalan pantas, senaman aerobik, main badminton.',
+  activityExamples: 'Contoh aktiviti berintensiti sederhana: Joging, berjalan pantas, senaman aerobik, main badminton.',
   mealplan: 'Contoh menu yang disarankan dalam sehari',
   mealplanNote: 'Nota: Menu ini boleh diubah suai mengikut keperluan tenaga harian anda.',
   mealplanSource: 'Sumber: Panduan Diet Malaysia 2020'

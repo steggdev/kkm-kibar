@@ -17,20 +17,20 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
     title: 'Contoh menu 1200 kalori',
     slots: [
       { name: 'Sarapan', items: [
-        '2 keping roti gandum penuh & ¼ sudu mentega kacang',
+        '2 keping roti gandum penuh & ¼ sudu teh marjerin lembut',
         '1 gelas susu rendah lemak'
       ]},
-      { name: 'Makan tengah hari', items: [
+      { name: 'Makan Tengah Hari', items: [
         '2 senduk nasi beras perang',
         '1 mangkuk sederhana sup sayur',
         '1 keping ikan tenggiri masak singgang',
         '1 biji buah limau bersaiz sederhana',
         '1 gelas air kosong'
       ]},
-      { name: 'Minum petang', items: [
+      { name: 'Minum Petang', items: [
         '3 keping biskut gandum penuh'
       ]},
-      { name: 'Makan malam', items: [
+      { name: 'Makan Malam', items: [
         '2 senduk nasi beras perang',
         '1 senduk kailan tumis',
         '1 mangkuk sederhana tomyam ayam (1 ketul paha ayam tanpa kulit) bersama lobak merah, bunga kobis & tomato',
@@ -45,12 +45,12 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
     slots: [
       { name: 'Sarapan', items: [
         '2 keping (60g) roti gandum penuh',
-        '1 biji telur rebus'
+        '1 gelas susu'
       ]},
-      { name: 'Minum pagi', items: [
+      { name: 'Minum Pagi', items: [
         '1–2 bekas yogurt tanpa perisa'
       ]},
-      { name: 'Makan tengah hari', items: [
+      { name: 'Makan Tengah Hari', items: [
         '2 senduk nasi beras perang',
         '1 senduk (60g) bayam tumis bersama tauhu',
         '1 senduk (30g) kacang buncis + terung tumis',
@@ -58,10 +58,10 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
         '1 biji epal bersaiz sederhana',
         '1 gelas air kosong'
       ]},
-      { name: 'Minum petang', items: [
+      { name: 'Minum Petang', items: [
         '1 gelas air soya tanpa gula'
       ]},
-      { name: 'Makan malam', items: [
+      { name: 'Makan Malam', items: [
         '2 senduk nasi beras perang',
         '1 senduk (60g) sayur kangkung tumis',
         '1 mangkuk sup ayam (250g) bersama lobak merah',
@@ -79,10 +79,10 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
         '1 keping keju',
         '1 gelas susu'
       ]},
-      { name: 'Minum pagi', items: [
+      { name: 'Minum Pagi', items: [
         '1–2 bekas yogurt tanpa perisa'
       ]},
-      { name: 'Makan tengah hari', items: [
+      { name: 'Makan Tengah Hari', items: [
         '2 senduk nasi beras perang',
         '1 senduk (60g) bayam tumis bersama tauhu',
         '1 senduk (30g) kacang buncis + terung tumis',
@@ -90,11 +90,11 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
         '1 biji epal bersaiz sederhana',
         '1 gelas air kosong'
       ]},
-      { name: 'Minum petang', items: [
+      { name: 'Minum Petang', items: [
         '4 keping biskut gandum penuh (20g)',
         '½ cawan kacang kuda rebus (80g)'
       ]},
-      { name: 'Makan malam', items: [
+      { name: 'Makan Malam', items: [
         '2 senduk nasi beras perang',
         '1 senduk (60g) sayur kangkung tumis',
         '1 mangkuk (250g) sup ayam bersama lobak merah',
@@ -113,11 +113,11 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
         '1 biji telur dadar',
         '1 gelas susu'
       ]},
-      { name: 'Minum pagi', items: [
+      { name: 'Minum Pagi', items: [
         '1 bekas yogurt tanpa perisa',
         '1 cawan bijirin sarapan gandum penuh tanpa gula tambahan'
       ]},
-      { name: 'Makan tengah hari', items: [
+      { name: 'Makan Tengah Hari', items: [
         '2 senduk nasi beras perang',
         '1 senduk (60g) bayam tumis bersama tauhu',
         '1 senduk (30g) kacang buncis + terung tumis',
@@ -125,11 +125,11 @@ export const sampleMenus: Record<SampleMenuKey, SampleMenu> = {
         '1 biji epal bersaiz sederhana',
         '1 gelas air kosong'
       ]},
-      { name: 'Minum petang', items: [
+      { name: 'Minum Petang', items: [
         '1½ biji (158g) tauhu sumbat',
         '4 keping biskut gandum penuh (20g)'
       ]},
-      { name: 'Makan malam', items: [
+      { name: 'Makan Malam', items: [
         '2 senduk nasi beras perang',
         '1 senduk (60g) sayur kangkung tumis',
         '1 mangkuk (250g) stew ayam bersama tauhu dan lobak merah',
