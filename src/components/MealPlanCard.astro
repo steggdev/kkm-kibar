@@ -6,15 +6,16 @@
       <div>
         <div class="meal-eyebrow-row">
           <span class="meal-eyebrow-line" style="max-width: 40px;"></span>
-          <span class="meal-eyebrow" id="l-mealplan-eyebrow">Cadangan pemakanan</span>
+          <span class="meal-eyebrow" id="l-menu-title">Contoh Menu</span>
         </div>
-        <div class="meal-title" id="l-mealplan">Pelan makan sehari</div>
+        <div class="meal-title" id="l-mealplan">Contoh menu yang disarankan dalam sehari</div>
       </div>
       <div class="kcal-badge" id="plan-badge"></div>
     </div>
-    <div class="meal-sub" id="meal-sub-text"></div>
+    <div class="meal-sub" id="meal-sub-text">Nota: Menu ini boleh diubah suai mengikut keperluan tenaga harian anda.</div>
   </div>
   <div class="meal-slots" id="meal-plan-content"></div>
+  <p class="meal-source" id="l-mealplan-source">Sumber: Panduan Diet Malaysia 2020</p>
   <div class="meal-footer">
     <button class="print-btn" id="btn-print">
       <span id="pdf-btn-text">Muat turun / Cetak</span>
@@ -188,6 +189,16 @@
   width: 6px;
   height: 1px;
   background: var(--teal-400);
+}
+
+.meal-source {
+  padding: 0 2rem 1rem;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-40);
+  letter-spacing: 0.2px;
 }
 
 /* Footer */

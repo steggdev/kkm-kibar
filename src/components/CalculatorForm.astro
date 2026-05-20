@@ -40,7 +40,7 @@
         </div>
         <div class="act-icon">🪑</div>
         <div class="act-label" id="a1-label">Sedentari</div>
-        <div class="act-desc" id="a1-desc">Kerja pejabat, duduk banyak</div>
+        <div class="act-desc" id="a1-desc">Anda melakukan aktiviti berintensiti sederhana &lt;150 minit seminggu</div>
       </div>
       <div class="activity-opt" data-level="moderate">
         <div class="act-check">
@@ -48,7 +48,7 @@
         </div>
         <div class="act-icon">🚶</div>
         <div class="act-label" id="a2-label">Sederhana Aktif</div>
-        <div class="act-desc" id="a2-desc">Senaman 3–5x seminggu</div>
+        <div class="act-desc" id="a2-desc">Anda melakukan aktiviti berintensiti sederhana 150–300 minit seminggu</div>
       </div>
       <div class="activity-opt" data-level="active">
         <div class="act-check">
@@ -56,66 +56,10 @@
         </div>
         <div class="act-icon">🏃</div>
         <div class="act-label" id="a3-label">Sangat Aktif</div>
-        <div class="act-desc" id="a3-desc">Kerja fizikal / latihan berat</div>
+        <div class="act-desc" id="a3-desc">Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu</div>
       </div>
     </div>
-  </div>
-
-  <!-- Section 03: Timing -->
-  <div class="form-section">
-    <div class="section-head">
-      <span class="section-number" id="s3-num">iii.</span>
-      <span class="section-label" id="l-timing">Waktu Makan Biasa Anda</span>
-      <span class="section-line"></span>
-    </div>
-    <div class="timing-grid">
-      <div class="timing-slot">
-        <label class="timing-label">
-          <span class="timing-label-emoji">🌅</span>
-          <span id="lt-breakfast">sarapan</span>
-        </label>
-        <select class="timing-select" id="t-breakfast">
-          <option value="6:00">6:00 pagi</option>
-          <option value="6:30">6:30 pagi</option>
-          <option value="7:00" selected>7:00 pagi</option>
-          <option value="7:30">7:30 pagi</option>
-          <option value="8:00">8:00 pagi</option>
-          <option value="8:30">8:30 pagi</option>
-          <option value="9:00">9:00 pagi</option>
-          <option value="9:30">9:30 pagi</option>
-          <option value="10:00">10:00 pagi</option>
-        </select>
-      </div>
-      <div class="timing-slot">
-        <label class="timing-label">
-          <span class="timing-label-emoji">☀️</span>
-          <span id="lt-lunch">makan tengahari</span>
-        </label>
-        <select class="timing-select" id="t-lunch">
-          <option value="11:30">11:30 pagi</option>
-          <option value="12:00">12:00 tengahari</option>
-          <option value="12:30" selected>12:30 tengahari</option>
-          <option value="13:00">1:00 petang</option>
-          <option value="13:30">1:30 petang</option>
-          <option value="14:00">2:00 petang</option>
-        </select>
-      </div>
-      <div class="timing-slot">
-        <label class="timing-label">
-          <span class="timing-label-emoji">🌙</span>
-          <span id="lt-dinner">makan malam</span>
-        </label>
-        <select class="timing-select" id="t-dinner">
-          <option value="18:00">6:00 petang</option>
-          <option value="18:30">6:30 petang</option>
-          <option value="19:00" selected>7:00 malam</option>
-          <option value="19:30">7:30 malam</option>
-          <option value="20:00">8:00 malam</option>
-          <option value="20:30">8:30 malam</option>
-          <option value="21:00">9:00 malam</option>
-        </select>
-      </div>
-    </div>
+    <p class="activity-examples" id="activity-examples">Contoh aktiviti berintensiti sederhana: Joging, berjalan pantas, senaman aerobik, main badminton.</p>
   </div>
 
   <!-- CTA -->
@@ -333,6 +277,15 @@
   color: var(--ink-40);
   line-height: 1.45;
   position: relative;
+}
+
+.activity-examples {
+  margin-top: 14px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 13.5px;
+  color: var(--ink-60);
+  line-height: 1.55;
 }
 
 /* Timing */
