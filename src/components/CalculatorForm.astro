@@ -5,19 +5,19 @@
   <div class="form-section">
     <div class="section-head">
       <span class="section-number" id="s1-num">i.</span>
-      <span class="section-label" id="l-personal">Maklumat Peribadi</span>
+      <span class="section-label" id="l-personal">Maklumat peribadi</span>
       <span class="section-line"></span>
     </div>
     <div class="field-row">
       <div class="field">
-        <label id="l-weight">berat badan semasa</label>
+        <label id="l-weight">Berat badan semasa</label>
         <div class="input-wrap">
           <input type="number" id="weight" placeholder="65.5" step="0.1" min="20" max="300" />
           <span class="input-unit">kg</span>
         </div>
       </div>
       <div class="field">
-        <label id="l-height">tinggi badan</label>
+        <label id="l-height">Tinggi badan</label>
         <div class="input-wrap">
           <input type="number" id="height" placeholder="165" step="1" min="100" max="250" />
           <span class="input-unit">cm</span>
@@ -30,7 +30,7 @@
   <div class="form-section">
     <div class="section-head">
       <span class="section-number" id="s2-num">ii.</span>
-      <span class="section-label" id="l-activity">Tahap Aktiviti Fizikal</span>
+      <span class="section-label" id="l-activity">Tahap aktiviti fizikal</span>
       <span class="section-line"></span>
     </div>
     <div class="activity-grid" id="activity-options">
@@ -47,7 +47,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <div class="act-icon">🚶</div>
-        <div class="act-label" id="a2-label">Sederhana Aktif</div>
+        <div class="act-label" id="a2-label">Sederhana aktif</div>
         <div class="act-desc" id="a2-desc">Anda melakukan aktiviti berintensiti sederhana 150–300 minit seminggu</div>
       </div>
       <div class="activity-opt" data-level="active">
@@ -55,18 +55,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <div class="act-icon">🏃</div>
-        <div class="act-label" id="a3-label">Sangat Aktif</div>
+        <div class="act-label" id="a3-label">Sangat aktif</div>
         <div class="act-desc" id="a3-desc">Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu</div>
       </div>
     </div>
-    <p class="activity-examples" id="activity-examples">Contoh aktiviti berintensiti sederhana: Joging, berjalan pantas, senaman aerobik, main badminton.</p>
+    <p class="activity-examples" id="activity-examples">Contoh aktiviti berintensiti sederhana: joging, berjalan pantas, senaman aerobik, main badminton.</p>
   </div>
 
   <!-- CTA -->
   <div class="cta-section">
     <button class="calc-btn" id="calc-btn">
       <span class="calc-btn-content">
-        <span id="calc-btn-text">Kira Keputusan</span>
+        <span id="calc-btn-text">Kira keputusan</span>
         <span class="calc-btn-arrow">→</span>
       </span>
     </button>
@@ -100,8 +100,7 @@
 }
 
 .section-number {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-size: 15px;
   color: var(--teal-700);
   letter-spacing: 0.5px;
@@ -116,8 +115,7 @@
 .section-label {
   font-size: 12px;
   font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  letter-spacing: 0.5px;
   color: var(--ink-40);
 }
 
@@ -135,8 +133,7 @@
 }
 
 .field label {
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 400;
   color: var(--ink-60);
@@ -152,7 +149,7 @@
   padding: 0 52px 0 18px;
   border: 1px solid var(--cream-200);
   border-radius: var(--r);
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-size: 26px;
   font-weight: 400;
   color: var(--ink);
@@ -184,8 +181,7 @@
   right: 18px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 400;
   color: var(--ink-40);
@@ -281,8 +277,7 @@
 
 .activity-examples {
   margin-top: 14px;
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-size: 13.5px;
   color: var(--ink-60);
   line-height: 1.55;
@@ -301,8 +296,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-family: var(--font-serif);
-  font-style: italic;
+  font-family: var(--font-sans);
   font-size: 15px;
   font-weight: 400;
   color: var(--ink-60);
@@ -352,8 +346,7 @@
   font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  letter-spacing: 0.3px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
