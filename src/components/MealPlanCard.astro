@@ -12,7 +12,7 @@
       </div>
       <div class="kcal-badge" id="plan-badge"></div>
     </div>
-    <div class="meal-sub" id="meal-sub-text">Nota: menu ini boleh diubah suai mengikut keperluan tenaga harian anda.</div>
+    <div class="meal-sub" id="meal-sub-text">Nota: Menu ini boleh diubah suai mengikut keperluan tenaga harian anda.</div>
   </div>
   <div class="meal-slots" id="meal-plan-content"></div>
   <p class="meal-source" id="l-mealplan-source">Sumber: Panduan Diet Malaysia 2020</p>
@@ -22,6 +22,24 @@
     </button>
   </div>
 </div>
+
+<script>
+  const mealSource = document.getElementById('l-mealplan-source') as HTMLParagraphElement | null;
+  const planBadge = document.getElementById('plan-badge');
+  const updateMealSourceVisibility = () => {
+    if (!mealSource || !planBadge) return;
+    mealSource.hidden = planBadge.textContent?.trim().startsWith('1200') ?? false;
+  };
+
+  updateMealSourceVisibility();
+  if (planBadge) {
+    new MutationObserver(updateMealSourceVisibility).observe(planBadge, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+  }
+</script>
 
 <style>
 /* Meal card */

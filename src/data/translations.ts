@@ -13,7 +13,7 @@ const hardcodedBM = {
   a3d: 'Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu',
   activityExamples: 'Contoh aktiviti berintensiti sederhana: joging, berjalan pantas, senaman aerobik, main badminton.',
   mealplan: 'Contoh menu yang disarankan dalam sehari',
-  mealplanNote: 'Nota: menu ini boleh diubah suai mengikut keperluan tenaga harian anda.',
+  mealplanNote: 'Nota: Menu ini boleh diubah suai mengikut keperluan tenaga harian anda.',
   mealplanSource: 'Sumber: Panduan Diet Malaysia 2020'
 };
 
