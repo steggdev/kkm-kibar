@@ -102,7 +102,6 @@ import Results from '../components/Results.astro';
           <div class="slot-header">
             <span class="slot-emoji">${icons[i]}</span>
             <span class="slot-name">${slot.name[lang]}</span>
-            <span class="slot-divider"></span>
           </div>
           <div class="slot-items">
             ${slot.items[lang].map((item: string) => `<div class="slot-item">${item}</div>`).join('')}

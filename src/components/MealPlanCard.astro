@@ -5,7 +5,6 @@
     <div class="meal-header-top">
       <div>
         <div class="meal-eyebrow-row">
-          <span class="meal-eyebrow-line" style="max-width: 40px;"></span>
           <span class="meal-eyebrow" id="l-menu-title">Contoh menu</span>
         </div>
         <div class="meal-title" id="l-mealplan">Contoh menu yang disarankan dalam sehari</div>
@@ -67,9 +66,6 @@
 }
 
 .meal-eyebrow-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   margin-bottom: 8px;
 }
 
@@ -78,13 +74,6 @@
   font-size: 14px;
   color: var(--teal-700);
   letter-spacing: 0.3px;
-}
-
-.meal-eyebrow-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--cream-200), transparent);
-  max-width: 100px;
 }
 
 .meal-title {
@@ -160,16 +149,6 @@
   font-weight: 400;
   color: var(--ink-40);
   letter-spacing: 0.2px;
-}
-
-:global(.slot-divider) {
-  flex: 1;
-  height: 1px;
-  background: var(--cream-200);
-  background-image: linear-gradient(to right, var(--cream-300) 33%, transparent 0%);
-  background-size: 4px 1px;
-  background-repeat: repeat-x;
-  transform: translateY(-3px);
 }
 
 :global(.slot-kcal) {
