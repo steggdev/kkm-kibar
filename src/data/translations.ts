@@ -3,20 +3,20 @@ export type BmiCat = 'uw' | 'normal' | 'ow' | 'ob';
 
 const hardcodedBM = {
   eyebrow: 'INISIATIF KIBAR (KIRA, BAKAR, REKOD)',
-  title: 'Berapa keperluan kalori harian anda?',
-  sub: 'Ketahui maklumat mengenai keperluan kalori harian, status Indeks Jisim Tubuh (BMI) dan contoh menu yang bersesuaian dengan keperluan kalori harian anda.',
-  a1d: 'Anda melakukan aktiviti berintensiti sederhana <150 minit seminggu',
-  a2d: 'Anda melakukan aktiviti berintensiti sederhana 150–300 minit seminggu',
-  a3d: 'Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu',
-  activityExamples: 'Contoh aktiviti berintensiti sederhana: Joging, berjalan pantas, senaman aerobik, main badminton.',
-  mealplan: 'Contoh menu yang disarankan dalam sehari',
-  mealplanNote: 'Nota: Menu ini boleh diubah suai mengikut keperluan tenaga harian anda.',
-  mealplanSource: 'Sumber: Panduan Diet Malaysia 2020'
-};
+} as const;
 
 export const t = {
   bm: {
     ...hardcodedBM,
+    title: 'Berapa keperluan kalori harian anda?',
+    sub: 'Ketahui maklumat mengenai keperluan kalori harian, status Indeks Jisim Tubuh (BMI) dan contoh menu yang bersesuaian dengan keperluan kalori harian anda.',
+    a1d: 'Anda melakukan aktiviti berintensiti sederhana <150 minit seminggu',
+    a2d: 'Anda melakukan aktiviti berintensiti sederhana 150–300 minit seminggu',
+    a3d: 'Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu',
+    activityExamples: 'Contoh aktiviti berintensiti sederhana: Joging, berjalan pantas, senaman aerobik, main badminton.',
+    mealplan: 'Contoh menu yang disarankan dalam sehari',
+    mealplanNote: 'Nota: Menu ini boleh diubah suai mengikut keperluan tenaga harian anda.',
+    mealplanSource: 'Sumber: Panduan Diet Malaysia 2020',
     a1: 'Sedentari', a2: 'Sederhana Aktif', a3: 'Sangat Aktif',
     mealEyebrow: 'Contoh menu', mealNameSuffix: 'kalori',
     m1: 'Garis panduan KKM', m2: '± 30 saat', m3: 'Data tidak disimpan',
@@ -42,6 +42,15 @@ export const t = {
   },
   en: {
     ...hardcodedBM,
+    title: 'How many calories do you need daily?',
+    sub: 'Learn about your daily calorie needs, your Body Mass Index (BMI) status, and a sample menu that fits your daily calorie target.',
+    a1d: 'You do moderate-intensity activity less than 150 minutes per week',
+    a2d: 'You do moderate-intensity activity 150–300 minutes per week',
+    a3d: 'You do moderate-intensity activity 300 minutes per week or more',
+    activityExamples: 'Examples of moderate-intensity activity: jogging, brisk walking, aerobic exercise, badminton.',
+    mealplan: 'Sample menu recommended for the day',
+    mealplanNote: 'Note: This menu can be adjusted to suit your daily energy needs.',
+    mealplanSource: 'Source: Panduan Diet Malaysia 2020',
     a1: 'Sedentary', a2: 'Moderately Active', a3: 'Very Active',
     mealEyebrow: 'Sample menu', mealNameSuffix: 'calories',
     m1: 'KKM guidelines', m2: '± 30 seconds', m3: 'No data stored',
