@@ -5,11 +5,8 @@ const hardcodedBM = {
   eyebrow: 'INISIATIF KIBAR (KIRA, BAKAR, REKOD)',
   title: 'Berapa keperluan kalori harian anda?',
   sub: 'Ketahui maklumat mengenai keperluan kalori harian, status Indeks Jisim Tubuh (BMI) dan contoh menu yang bersesuaian dengan keperluan kalori harian anda.',
-  a1: 'Sedentari',
   a1d: 'Anda melakukan aktiviti berintensiti sederhana <150 minit seminggu',
-  a2: 'Sederhana aktif',
   a2d: 'Anda melakukan aktiviti berintensiti sederhana 150–300 minit seminggu',
-  a3: 'Sangat aktif',
   a3d: 'Anda melakukan aktiviti berintensiti sederhana ≥300 minit seminggu',
   activityExamples: 'Contoh aktiviti berintensiti sederhana: Joging, berjalan pantas, senaman aerobik, main badminton.',
   mealplan: 'Contoh menu yang disarankan dalam sehari',
@@ -20,6 +17,8 @@ const hardcodedBM = {
 export const t = {
   bm: {
     ...hardcodedBM,
+    a1: 'Sedentari', a2: 'Sederhana Aktif', a3: 'Sangat Aktif',
+    mealEyebrow: 'Contoh menu', mealNameSuffix: 'kalori',
     m1: 'Garis panduan KKM', m2: '± 30 saat', m3: 'Data tidak disimpan',
     metaLabels: ['Berdasarkan', 'Tempoh kiraan', 'Privasi'],
     s1n: 'i.', s2n: 'ii.',
@@ -43,6 +42,8 @@ export const t = {
   },
   en: {
     ...hardcodedBM,
+    a1: 'Sedentary', a2: 'Moderately Active', a3: 'Very Active',
+    mealEyebrow: 'Sample menu', mealNameSuffix: 'calories',
     m1: 'KKM guidelines', m2: '± 30 seconds', m3: 'No data stored',
     metaLabels: ['Based on', 'Calculation time', 'Privacy'],
     s1n: 'i.', s2n: 'ii.',

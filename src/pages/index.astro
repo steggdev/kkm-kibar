@@ -94,18 +94,18 @@ import Results from '../components/Results.astro';
       const menu = sampleMenus[menuKey];
       const icons = menu.slots.length === 4 ? SLOT_ICONS_4 : SLOT_ICONS_5;
 
-      document.getElementById('l-menu-title')!.textContent = menu.title;
+      document.getElementById('l-menu-title')!.textContent = `${t[lang].mealEyebrow} ${menu.kcal} ${t[lang].mealNameSuffix}`;
       document.getElementById('plan-badge')!.textContent = `${menu.kcal} kcal`;
 
       document.getElementById('meal-plan-content')!.innerHTML = menu.slots.map((slot, i) => `
         <div class="meal-slot">
           <div class="slot-header">
             <span class="slot-emoji">${icons[i]}</span>
-            <span class="slot-name">${slot.name}</span>
+            <span class="slot-name">${slot.name[lang]}</span>
             <span class="slot-divider"></span>
           </div>
           <div class="slot-items">
-            ${slot.items.map((item: string) => `<div class="slot-item">${item}</div>`).join('')}
+            ${slot.items[lang].map((item: string) => `<div class="slot-item">${item}</div>`).join('')}
           </div>
         </div>
       `).join('');
