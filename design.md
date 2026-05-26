@@ -141,8 +141,7 @@ Fraunces 300-weight, `clamp(2.25rem, 5.5vw, 3.25rem)`, white, italic `<em>` in `
 Inter Tight 300, 15px, 60% white, max-width 480px.
 
 **Hero meta strip (new — premium detail):**
-Three meta items with italic Fraunces labels + Inter Tight values:
-- "Berdasarkan / Based on" → "Garis Panduan KKM / KKM Guidelines"
+Two meta items with italic Fraunces labels + Inter Tight values:
 - "Tempoh kiraan / Calculation time" → "± 30 saat / ± 30 seconds"
 - "Privasi / Privacy" → "Data tidak disimpan / No data stored"
 

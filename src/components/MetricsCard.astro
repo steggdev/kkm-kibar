@@ -30,6 +30,9 @@
       <div class="status-desc-text" id="status-desc"></div>
     </div>
   </div>
+  <p class="ideal-weight-note" id="ideal-weight-note">
+    Catatan: Berat badan ideal dikira berdasarkan berat badan anda pada BMI 22 kg/m².
+  </p>
 </div>
 
 <style>
@@ -191,6 +194,17 @@
   line-height: 1.55;
 }
 
+.ideal-weight-note {
+  margin: 0.9rem 0 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+  text-align: center;
+}
+
 .status-pill.uw {
   background: rgba(234, 179, 8, 0.12);
   border-color: rgba(234, 179, 8, 0.22);
@@ -221,7 +235,7 @@
 @media print {
   .metrics-card { background: white; color: var(--ink); border: 1px solid var(--cream-200); box-shadow: none !important; }
   .metrics-card::before, .metrics-card::after { display: none; }
-  .metric-val, .metric-lbl, .metric-unit, .status-name, .status-desc-text, .metrics-eyebrow, .metrics-label { color: var(--ink) !important; }
+  .metric-val, .metric-lbl, .metric-unit, .status-name, .status-desc-text, .ideal-weight-note, .metrics-eyebrow, .metrics-label { color: var(--ink) !important; }
   .status-pill { background: var(--cream) !important; border-color: var(--cream-200) !important; }
   .status-pill.uw .status-icon, .status-pill.uw .status-name,
   .status-pill.normal .status-icon, .status-pill.normal .status-name,

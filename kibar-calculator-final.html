@@ -1142,17 +1142,13 @@
 
     <div class="kibar-eyebrow">
       <div class="kibar-dot"></div>
-      <span id="h-eyebrow">INISIATIF KIBAR (KIRA, BAKAR, REKOD)</span>
+      <span id="h-eyebrow">INISIATIF KiBaR (KIRA, BAKAR, REKOD)</span>
     </div>
 
     <h1 id="h-title">Berapa keperluan kalori harian anda?</h1>
     <p class="hero-sub" id="h-sub">Ketahui maklumat mengenai keperluan kalori harian, status Indeks Jisim Tubuh (BMI) dan contoh menu yang bersesuaian dengan keperluan kalori harian anda.</p>
 
     <div class="hero-meta">
-      <div class="meta-item">
-        <span class="meta-label">Berdasarkan</span>
-        <span class="meta-value" id="m1">Garis Panduan KKM</span>
-      </div>
       <div class="meta-item">
         <span class="meta-label">Tempoh kiraan</span>
         <span class="meta-value" id="m2">± 30 saat</span>
@@ -1322,7 +1318,7 @@ const SLOT_ICONS_5 = ['🌅','🍎','☀️','🫐','🌙'];
 const SLOT_ICONS_4 = ['🌅','☀️','🫐','🌙'];
 
 const hardcodedBM = {
-  eyebrow: 'INISIATIF KIBAR (KIRA, BAKAR, REKOD)',
+  eyebrow: 'INISIATIF KiBaR (KIRA, BAKAR, REKOD)',
   title: 'Berapa keperluan kalori harian anda?',
   sub: 'Ketahui maklumat mengenai keperluan kalori harian, status Indeks Jisim Tubuh (BMI) dan contoh menu yang bersesuaian dengan keperluan kalori harian anda.',
   a1: 'Sedentari',
@@ -1340,8 +1336,8 @@ const hardcodedBM = {
 const t = {
   bm: {
     ...hardcodedBM,
-    m1: 'Garis Panduan KKM', m2: '± 30 saat', m3: 'Data tidak disimpan',
-    metaLabels: ['Berdasarkan', 'Tempoh kiraan', 'Privasi'],
+    m2: '± 30 saat', m3: 'Data tidak disimpan',
+    metaLabels: ['Tempoh kiraan', 'Privasi'],
     s1n: 'i.', s2n: 'ii.',
     personal: 'Maklumat Peribadi', activity: 'Tahap Aktiviti Fizikal',
     weight: 'berat badan semasa', height: 'tinggi badan',
@@ -1363,8 +1359,8 @@ const t = {
   },
   en: {
     ...hardcodedBM,
-    m1: 'KKM Guidelines', m2: '± 30 seconds', m3: 'No data stored',
-    metaLabels: ['Based on', 'Calculation time', 'Privacy'],
+    m2: '± 30 seconds', m3: 'No data stored',
+    metaLabels: ['Calculation time', 'Privacy'],
     s1n: 'i.', s2n: 'ii.',
     personal: 'Personal Information', activity: 'Physical Activity Level',
     weight: 'current weight', height: 'height',
@@ -1617,7 +1613,6 @@ function setLang(l, e) {
   document.getElementById('h-eyebrow').textContent = tx.eyebrow;
   document.getElementById('h-title').textContent = tx.title;
   document.getElementById('h-sub').textContent = tx.sub;
-  document.getElementById('m1').textContent = tx.m1;
   document.getElementById('m2').textContent = tx.m2;
   document.getElementById('m3').textContent = tx.m3;
   document.querySelectorAll('.meta-label').forEach((el, i) => { el.textContent = tx.metaLabels[i]; });

@@ -2,7 +2,7 @@ export type Language = 'bm' | 'en';
 export type BmiCat = 'uw' | 'normal' | 'ow' | 'ob';
 
 const hardcodedBM = {
-  eyebrow: 'INISIATIF KIBAR (KIRA, BAKAR, REKOD)',
+  eyebrow: 'INISIATIF KiBaR (KIRA, BAKAR, REKOD)',
 } as const;
 
 export const t = {
@@ -19,8 +19,8 @@ export const t = {
     mealplanSource: 'Sumber: Panduan Diet Malaysia 2020',
     a1: 'Sedentari', a2: 'Sederhana Aktif', a3: 'Sangat Aktif',
     mealEyebrow: 'Contoh menu', mealNameSuffix: 'kalori',
-    m1: 'Garis panduan KKM', m2: '± 30 saat', m3: 'Data tidak disimpan',
-    metaLabels: ['Berdasarkan', 'Tempoh kiraan', 'Privasi'],
+    m2: '± 30 saat', m3: 'Data tidak disimpan',
+    metaLabels: ['Tempoh kiraan', 'Privasi'],
     s1n: 'i.', s2n: 'ii.',
     personal: 'Maklumat peribadi', activity: 'Tahap aktiviti fizikal',
     weight: 'Berat badan semasa', height: 'Tinggi badan',
@@ -28,6 +28,7 @@ export const t = {
     dividerMark: 'Keputusan',
     mEyebrow: 'Profil tenaga', mLabel: 'Ringkasan',
     idealw: 'Berat ideal', kcal: 'Kalori harian', kcalUnit: 'kcal / hari',
+    idealWeightNote: 'Catatan: Berat badan ideal dikira berdasarkan berat badan anda pada BMI 22 kg/m².',
     pdfBtn: 'Muat turun / cetak',
     disclaimer: 'Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.\n© Kementerian Kesihatan Malaysia Bahagian Pemakanan',
     alert: 'Sila masukkan berat dan tinggi yang sah.',
@@ -53,8 +54,8 @@ export const t = {
     mealplanSource: 'Source: Panduan Diet Malaysia 2020',
     a1: 'Sedentary', a2: 'Moderately Active', a3: 'Very Active',
     mealEyebrow: 'Sample menu', mealNameSuffix: 'calories',
-    m1: 'KKM guidelines', m2: '± 30 seconds', m3: 'No data stored',
-    metaLabels: ['Based on', 'Calculation time', 'Privacy'],
+    m2: '± 30 seconds', m3: 'No data stored',
+    metaLabels: ['Calculation time', 'Privacy'],
     s1n: 'i.', s2n: 'ii.',
     personal: 'Personal information', activity: 'Physical activity level',
     weight: 'Current weight', height: 'Height',
@@ -62,6 +63,7 @@ export const t = {
     dividerMark: 'Results',
     mEyebrow: 'Energy profile', mLabel: 'Summary',
     idealw: 'Ideal weight', kcal: 'Daily calories', kcalUnit: 'kcal / day',
+    idealWeightNote: 'Note: Ideal body weight is calculated based on your weight at BMI 22 kg/m².',
     pdfBtn: 'Download / print',
     disclaimer: 'This information is a guide only and does not replace clinical advice. Please consult a nutritionist or doctor for further guidance.\n© Ministry of Health Malaysia Nutrition Division',
     alert: 'Please enter a valid weight and height.',
