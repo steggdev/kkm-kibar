@@ -12,10 +12,7 @@ import MealPlanCard from './MealPlanCard.astro';
   <MetricsCard />
   <MealPlanCard />
 
-  <p class="disclaimer" id="disclaimer-text">
-    Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.<br>
-    © Kementerian Kesihatan Malaysia Bahagian Pemakanan
-  </p>
+  <p class="disclaimer" id="disclaimer-text" set:html={'Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk <em>Nutritionist</em> atau doktor untuk bimbingan lanjut.<br>© Kementerian Kesihatan Malaysia Bahagian Pemakanan'} />
 </div>
 
 <style>

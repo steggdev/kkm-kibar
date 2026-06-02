@@ -30,7 +30,7 @@ export const t = {
     idealw: 'Berat ideal', kcal: 'Kalori harian', kcalUnit: 'kcal / hari',
     idealWeightNote: 'Catatan: Berat badan ideal dikira berdasarkan berat badan anda pada BMI 22 kg/m².',
     pdfBtn: 'Muat turun / cetak',
-    disclaimer: 'Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk pakar pemakanan atau doktor untuk bimbingan lanjut.\n© Kementerian Kesihatan Malaysia Bahagian Pemakanan',
+    disclaimer: 'Maklumat ini adalah panduan sahaja dan tidak menggantikan nasihat klinikal. Sila rujuk <em>Nutritionist</em> atau doktor untuk bimbingan lanjut.\n© Kementerian Kesihatan Malaysia Bahagian Pemakanan',
     alert: 'Sila masukkan berat dan tinggi yang sah.',
     status: { uw: 'Kurang berat badan', normal: 'Berat badan normal', ow: 'Lebih berat badan', ob: 'Obes' },
     statusDesc: {
@@ -65,7 +65,7 @@ export const t = {
     idealw: 'Ideal weight', kcal: 'Daily calories', kcalUnit: 'kcal / day',
     idealWeightNote: 'Note: Ideal body weight is calculated based on your weight at BMI 22 kg/m².',
     pdfBtn: 'Download / print',
-    disclaimer: 'This information is a guide only and does not replace clinical advice. Please consult a nutritionist or doctor for further guidance.\n© Ministry of Health Malaysia Nutrition Division',
+    disclaimer: 'This information is a guide only and does not replace clinical advice. Please consult a <em>Nutritionist</em> or doctor for further guidance.\n© Ministry of Health Malaysia Nutrition Division',
     alert: 'Please enter a valid weight and height.',
     status: { uw: 'Underweight', normal: 'Normal weight', ow: 'Overweight', ob: 'Obese' },
     statusDesc: {
